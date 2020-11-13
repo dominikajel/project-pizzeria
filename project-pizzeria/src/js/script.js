@@ -85,24 +85,24 @@
 
       /* find the clickable trigger (the element that should react to clicking) */
       
-      const trigger = document.querySelector(select.menuProduct.clickable);
+      const trigger = thisProduct.element.querySelector(select.menuProduct.clickable);
 
       /* START: click event listener to trigger */
-      trigger.addEventListener('click', function () {
+      trigger.addEventListener('click', function (event) {
 
         /* prevent default action for event */
-        Event.preventDefault();
+        event.preventDefault();
 
       /* toggle active class on element of thisProduct */
         thisProduct.element.classList.toggle('active');
 
       /* find all active products */
         
-        const activeProducts = document.querySelectorAll('active');
+        const activeProducts = document.querySelectorAll(select.all.menuProductsActive);
 
       /* START LOOP: for each active product */
         
-        for (let activeProduct in activeProducts) {
+        for (let activeProduct of activeProducts) {
 
         /* START: if the active product isn't the element of thisProduct */
           if (!activeProduct == thisProduct.element) {
