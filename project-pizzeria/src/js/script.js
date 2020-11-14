@@ -96,7 +96,7 @@
         event.preventDefault();
 
         /* toggle active class on element of thisProduct */
-        thisProduct.element.classList.add('active');
+        thisProduct.element.classList.toggle('active');
 
         /* find all active products */
         
