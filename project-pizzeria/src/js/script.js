@@ -176,7 +176,7 @@
       const formData = utils.serializeFormToObject(thisProduct.form);
 
       /* set variable price to equal thisProduct.data.price */
-      var price = thisProduct.data.price;
+      let price = thisProduct.data.price;
 
       /* START LOOP: for each paramId in thisProduct.data.params */
       for (let paramId in thisProduct.data.params) {
@@ -199,8 +199,8 @@
             /* END IF: if option is selected and option is not default */
           }
 
-            /* START ELSE IF: if option is not selected and option is default */
-           else if (!optionSelected && option.default) {
+          /* START ELSE IF: if option is not selected and option is default */
+          else if (!optionSelected && option.default) {
             /* deduct price of option from price */
             price -= option.price;
 
@@ -211,7 +211,7 @@
         /* END LOOP: for each paramId in thisProduct.data.params */
       }
       /* set the contents of thisProduct.priceElem to be the value of variable price */
-      thisProduct.priceElem.innerHTML = thisProduct.priceElem.innerHTML + price;
+      thisProduct.priceElem.innerHTML = price;
     }
   }
 
