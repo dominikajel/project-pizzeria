@@ -271,8 +271,8 @@
 
     addToCart() {
       const thisProduct = this;
-      thisProduct.data.name = thisProduct.name;
-      thisProduct.amountWidgetElem.value = thisProduct.amount;
+      thisProduct.name = thisProduct.data.name;
+      thisProduct.amount = thisProduct.amountWidgetElem.value;
       app.cart.add(thisProduct);
     }
   }
