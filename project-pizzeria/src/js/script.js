@@ -440,7 +440,7 @@
       const url = settings.db.url + '/' + settings.db.order;
 
       const payload = {
-        address: 'test',
+        // address: 'test',
         totalPrice: thisCart.totalPrice,
         phone: thisCart.dom.phone.value,
         address: thisCart.dom.address.value,
