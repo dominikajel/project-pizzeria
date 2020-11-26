@@ -99,6 +99,13 @@ const app = {
     window.location.hash = '#/' + pageId;
 
   },
+
+  initBooking: function () {
+    const thisApp = this;
+    const bookingWidget = document.querySelector
+
+
+  },
     
   
 
