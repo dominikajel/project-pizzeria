@@ -1,5 +1,5 @@
 
-import { select, templates } from '../settings.js';
+import { templates, select, settings, classNames } from '../settings.js';
 import { AmountWidget } from './AmountWidget.js';
 
 
@@ -14,7 +14,7 @@ export class Booking {
   render(bookingWrapper) {
     const thisBooking = this;
 
-    const generatedHTML = templates.bookingWidget;
+    const generatedHTML = templates.bookingWidget();
     thisBooking.dom = {};
     thisBooking.dom.wrapper = bookingWrapper;
     thisBooking.dom.wrapper.innerHTML = generatedHTML;
