@@ -7,7 +7,7 @@ export class Booking {
   constructor(bookingWrapper) {
     const thisBooking = this;
     //   thisBooking.render(thisApp.booking);
-      thisBooking.render(bookingWrapper);
+    thisBooking.render(bookingWrapper);
     thisBooking.initWidgets();
   }
 
@@ -18,6 +18,7 @@ export class Booking {
     thisBooking.dom = {};
     thisBooking.dom.wrapper = bookingWrapper;
     thisBooking.dom.wrapper.innerHTML = generatedHTML;
+
     thisBooking.dom.peopleAmount = thisBooking.dom.wrapper.querySelector(
       select.booking.peopleAmount
     );
