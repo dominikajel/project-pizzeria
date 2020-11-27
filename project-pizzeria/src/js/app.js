@@ -1,7 +1,7 @@
 import { Product } from './components/Product.js';
 import { Booking } from './components/Booking.js';
 import { Cart } from './components/Cart.js';
-import { select, settings, classNames, templates } from './settings.js';
+import { select, settings, classNames } from './settings.js';
 
 
 const app = {
