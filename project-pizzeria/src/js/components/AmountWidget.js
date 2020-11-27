@@ -16,7 +16,7 @@ export class AmountWidget extends BaseWidget {
 
   getElements() {
     const thisWidget = this;
-    
+
     thisWidget.dom.input = thisWidget.dom.wrapper.querySelector(
       select.widgets.amount.input
     );
@@ -28,36 +28,41 @@ export class AmountWidget extends BaseWidget {
     );
   }
 
-  setValue(value) {
-    const thisWidget = this;
+  // setValue(value) {
+  //   const thisWidget = this;
 
-    const newValue = parseInt(value);
+  //   const newValue = parseInt(value);
 
-    /*TO DO: Add validation*/
-    if (
-      newValue != thisWidget.value &&
-      newValue >= settings.amountWidget.defaultMin &&
-      newValue <= settings.amountWidget.defaultMax
-    ) {
-      thisWidget.value = newValue;
-      thisWidget.announce();
-    }
-    thisWidget.input.value = thisWidget.value;
+  //   /*TO DO: Add validation*/
+  //   if (
+  //     newValue != thisWidget.value &&
+  //     newValue >= settings.amountWidget.defaultMin &&
+  //     newValue <= settings.amountWidget.defaultMax
+  //   ) {
+  //     thisWidget.value = newValue;
+  //     thisWidget.announce();
+  //   }
+  //   thisWidget.input.value = thisWidget.value;
+  // }
+
+  isValid(newValue) {
+    return !isNaN(newValue) && newValue >= settings.amountWidget.defaultMin && newValue <= settings.amountWidget.defaultMax; 
+
   }
 
   initActions() {
     const thisWidget = this;
 
-    thisWidget.input.addEventListener('change', function () {
-      thisWidget.setValue(thisWidget.input.value);
+    thisWidget.dom.input.addEventListener('change', function () {
+      thisWidget.value = thisWidget.dom.input.value;
     });
-    thisWidget.linkDecrease.addEventListener('click', function (event) {
+    thisWidget.dom.linkDecrease.addEventListener('click', function (event) {
       event.preventDefault;
-      thisWidget.setValue(thisWidget.value - 1);
+      --thisWidget.value
     });
-    thisWidget.linkIncrease.addEventListener('click', function (event) {
+    thisWidget.dom.linkIncrease.addEventListener('click', function (event) {
       event.preventDefault;
-      thisWidget.setValue(thisWidget.value + 1);
+      ++thisWidget.value
     });
   }
 
