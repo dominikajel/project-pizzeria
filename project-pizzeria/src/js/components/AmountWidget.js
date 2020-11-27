@@ -1,7 +1,10 @@
 import { select, settings } from '../settings.js';
+import { BaseWidget } from './BaseWidget.js'; 
 
-export class AmountWidget {
+export class AmountWidget extends BaseWidget {
   constructor(element) {
+    super(element, settings.amountWidget.defaultValue);
+    
     const thisWidget = this;
     thisWidget.getElements(element);
     thisWidget.value = settings.amountWidget.defaultValue;
@@ -58,13 +61,13 @@ export class AmountWidget {
     });
   }
 
-  announce() {
-    const thisWidget = this;
+  // announce() {
+  //   const thisWidget = this;
 
-    const event = new CustomEvent('updated', {
-      bubbles: true,
-    });
+  //   const event = new CustomEvent('updated', {
+  //     bubbles: true,
+  //   });
 
-    thisWidget.element.dispatchEvent(event);
-  }
+  //   thisWidget.element.dispatchEvent(event);
+  // }
 }
