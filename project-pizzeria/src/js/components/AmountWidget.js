@@ -44,11 +44,11 @@ export class AmountWidget extends BaseWidget {
     });
     thisWidget.dom.linkDecrease.addEventListener('click', function (event) {
       event.preventDefault;
-      --thisWidget.value
+      --thisWidget.value;
     });
     thisWidget.dom.linkIncrease.addEventListener('click', function (event) {
       event.preventDefault;
-      ++thisWidget.value
+      ++thisWidget.value;
     });
   }
 
