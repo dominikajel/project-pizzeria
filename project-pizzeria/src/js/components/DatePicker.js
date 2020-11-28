@@ -1,6 +1,8 @@
+/* global flatpickr */
+
 import { select, settings } from '../settings.js';
 import { utils } from '../utils.js';
-import { BaseWidget } from './BaseWidget.js'; 
+import { BaseWidget } from './BaseWidget.js';
 
 export class DatePicker extends BaseWidget {
   constructor(wrapper) {
@@ -18,7 +20,7 @@ export class DatePicker extends BaseWidget {
       thisWidget.minDate,
       settings.datePicker.maxDaysInFuture
     );
-    flatpickr(thisWidget.dom.input, {
+    flatpickr(thisWidget.dom.input, { 
       defaultDate: thisWidget.minDate,
       minDate: thisWidget.minDate,
       maxDate: thisWidget.maxDate,
@@ -32,7 +34,7 @@ export class DatePicker extends BaseWidget {
         },
       ],
 
-      onChange: function (selectedDates, dateStr, instance) {
+      onChange: function (selectedDates, dateStr) {
         thisWidget.value = dateStr;
       },
     });
@@ -41,10 +43,9 @@ export class DatePicker extends BaseWidget {
     return value;
   }
   isValid() {
-      return true;
+    return true;
   }
   renderValue() {
-    
     // console.log('widget value:', thisWidget.value);
   }
 }
