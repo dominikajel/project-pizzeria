@@ -19,12 +19,11 @@ export class HourPicker extends BaseWidget {
   }
   initPlugin() {
     const thisWidget = this;
+
     rangeSlider.create(thisWidget.dom.input);
-    thisWidget.dom.input.addEventListener(
-        'input', function () {
-            (thisWidget.value = thisWidget.dom.input.value)
-        }
-    );
+    thisWidget.dom.input.addEventListener('input', function () {
+      thisWidget.value = thisWidget.dom.input.value;
+    });
   }
   parseValue(value) {
     return utils.numberToHour(value);
