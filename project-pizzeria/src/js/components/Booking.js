@@ -11,6 +11,8 @@ export class Booking {
     thisBooking.render(bookingWrapper);
     thisBooking.initWidgets();
     thisBooking.getData();
+    thisBooking.selectTable();
+    thisBooking.sendBooking();
   }
 
   render(bookingWrapper) {
@@ -186,5 +188,83 @@ export class Booking {
         console.log('Table is not available.');
       }
     }
+  }
+
+  selectTable() {
+    const thisBooking = this;
+    console.log('selectTable');
+
+    for (let table of thisBooking.dom.tables) {
+      table.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        let tableId = table.getAttribute(settings.booking.tableIdAttribute);
+
+        // if (!NaN(tableId)) {
+        //   tableId = parseInt(tableId);
+        // }
+
+        if (
+          typeof thisBooking.booked[thisBooking.date][thisBooking.hour] ==
+          'undefined'
+        ) {
+          if (table.classList.contains(classNames.booking.tableBooked)) {
+            table.classList.remove(classNames.booking.tableBooked);
+
+            console.log('Booking for the table is removed now.');
+            console.log(thisBooking.booked[thisBooking.date][thisBooking.hour]);
+          } else {
+            table.classList.add(classNames.booking.tableBooked);
+
+            console.log('Table is booked now.');
+          }
+        } else if (
+          thisBooking.booked[thisBooking.date][thisBooking.hour].includes(
+            tableId
+          )
+        ) {
+          console.log('Table is already booked.');
+        } else if (table.classList.contains(classNames.booking.tableBooked)) {
+          table.classList.remove(classNames.booking.tableBooked);
+
+          console.log('Booking for the table is removed now.');
+        } else {
+          table.classList.add(classNames.booking.tableBooked);
+
+          console.log('Table is booked now.');
+        }
+      });
+    }
+  }
+
+  sendBooking() {
+    const thisBooking = this;
+    console.log('sendBooking');
+
+    const url = settings.db.url + '/' + settings.db.booking;
+
+    const booking = {
+      date: thisBooking.DatePicker.value,
+      hour: thisBooking.HourPicker.value,
+      duration: thisBooking.hoursAmount.value,
+      ppl: thisBooking.peopleAmount.value,
+      id: thisBooking.table.id,
+    };
+
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(booking),
+    };
+
+    fetch(url, options)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (parsedResponse) {
+        console.log('parsedResponse', parsedResponse);
+      });
   }
 }
