@@ -239,21 +239,6 @@ export class Booking {
 
     const url = settings.db.url + '/' + settings.db.booking;
 
-    const booking = {
-      date: thisBooking.datePicker.value,
-      hour: thisBooking.hourPicker.value,
-      duration: thisBooking.hoursAmount.value,
-      ppl: thisBooking.peopleAmount.value,
-      table: [],
-      starters: [],
-    };
-
-    for (let starter of thisBooking.dom.starters) {
-      if (starter.checked == true) {
-        booking.starter.push(starter.value);
-      }
-    }
-
     const tables = thisBooking.dom.tables;
 
     for (let table of tables) {
@@ -261,9 +246,24 @@ export class Booking {
       const tableId = parseInt(tableNumber);
       console.log(tableNumber, tableId);
 
-      if (table.classList.contains(select.booking.tableBooked)) {
-        payload.table.push(tableId);
-        
+      // if (table.classList.contains(select.booking.tableBooked)) {
+      //   payload.table.push(tableId);
+
+      // }
+    }
+
+    const booking = {
+      date: thisBooking.datePicker.value,
+      hour: thisBooking.hourPicker.value,
+      duration: thisBooking.hoursAmount.value,
+      ppl: thisBooking.peopleAmount.value,
+      table: thisBooking.tableId,
+      starters: [],
+    };
+
+    for (let starter of thisBooking.dom.starters) {
+      if (starter.checked == true) {
+        booking.starter.push(starter.value);
       }
     }
 
