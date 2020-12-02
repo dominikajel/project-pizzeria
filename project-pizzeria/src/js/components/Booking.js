@@ -244,13 +244,26 @@ export class Booking {
       hour: thisBooking.hourPicker.value,
       duration: thisBooking.hoursAmount.value,
       ppl: thisBooking.peopleAmount.value,
-      table: thisBooking.tableBooked,
+      table: [],
       starters: [],
     };
 
     for (let starter of thisBooking.dom.starters) {
       if (starter.checked == true) {
         booking.starter.push(starter.value);
+      }
+    }
+
+    const tables = thisBooking.dom.tables;
+
+    for (let table of tables) {
+      const tableNumber = table.getAttribute(settings.booking.tableIdAttribute);
+      const tableId = parseInt(tableNumber);
+      console.log(tableNumber, tableId);
+
+      if (table.classList.contains(select.booking.tableBooked)) {
+        payload.table.push(tableId);
+        
       }
     }
 
