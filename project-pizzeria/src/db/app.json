@@ -256,27 +256,7 @@
     }
   ],
   "booking": [
-    {
-      "id": 4,
-      "date": "2020-11-29",
-      "hour": "12:30",
-      "table": 1,
-      "repeat": false,
-      "duration": 1,
-      "ppl": 3,
-      "starters": []
-    },
-
-    {
-      "id": 5,
-      "date": "2020-11-30",
-      "hour": "14:30",
-      "table": 1,
-      "repeat": false,
-      "duration": 1,
-      "ppl": 3,
-      "starters": []
-    }
+ 
 
 
   ]
