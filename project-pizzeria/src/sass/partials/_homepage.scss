@@ -13,27 +13,31 @@
 
     p {
       transition: 0.5s ease-in-out;
+      margin: 0;
+    padding: 0;
     }
 
     p:nth-child(2) {
       opacity: 0;
       font-weight: $font-light;
-      text-transform: lowercase;
-      font-style: $font-text;
-      font-size: $base-size + 5;
-      top: 80px;
+      text-transform: none;
+      font-family: $font-text;
+      font-size: $base-size + 2.5;
+      top: 90px;
+      white-space: nowrap;
     }
 
-    // &:hover {
-    //   p:nth-child(2) {
-    //     opacity: 1;
-    //     transform: translate(-50%, -30px);
-    //   }
+    &:hover {
+      p:nth-child(2) {
+        opacity: 1;
+        transform: translate(-50%, -20px);
+        // transform: translateY(-20px);
+      }
 
-    //   p:nth-child(1) {
-    //     transform: translate(-50%, -20px);
-    //   }
-    // }
+      p:nth-child(1) {
+        transform: translate(-50%, -40px);
+      }
+    }
   }
 }
 
@@ -57,7 +61,7 @@
     color: $color-light;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%,-50%);
   }
 
   img {
