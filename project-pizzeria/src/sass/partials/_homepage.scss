@@ -13,7 +13,6 @@
 
     p {
       transition: 0.5s ease-in-out;
-      
     }
 
     p:nth-child(2) {
@@ -35,7 +34,6 @@
     //     transform: translate(-50%, -20px);
     //   }
     // }
-
   }
 }
 
@@ -44,8 +42,9 @@
   height: ($base-size * 10);
   border-radius: 4px;
   width: 100%;
-  border: 2px solid red;
+  // border: 2px solid red;
   align-items: center;
+  // margin: 5px 5px 5px 5px;
 
   p {
     position: absolute;
@@ -59,9 +58,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-   
-
-   
   }
 
   img {
@@ -69,5 +65,34 @@
     height: 100%;
     object-fit: cover;
     border-radius: 4px;
+  }
+}
+
+.button-big {
+  background-color: $color-main;
+  color: $color-light;
+  position: relative;
+  margin-top: 5px;
+
+  p:nth-child(1) {
+    position: absolute;
+    top: 10px;
+  }
+
+  p:nth-child(2) {
+    position: absolute;
+    top: 57px;
+
+    font-family: $font-text;
+    font-weight: $font-light;
+    font-size: 14px;
+  }
+}
+
+.button-small {
+  max-width: 320px;
+
+  &:nth-child(1) {
+    margin-left: 3px;
   }
 }
