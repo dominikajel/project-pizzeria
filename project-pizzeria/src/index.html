@@ -19,6 +19,8 @@
     />
     <link rel="stylesheet" href="vendor/range-slider.min.css" />
 
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -107,65 +109,60 @@
           </div>
         </div>
 
-         <!-- Slideshow container -->
-         <div class="carousel container">
-<div class="slideshow-container">
+        <!-- Slideshow container -->
+       <div class="main-carousel container" data-flickity='{ "cellAlign": "left", "contain": true, "prevNextButtons": false, "autoPlay": 3000 }'>
+         
+              <div class="carousel-cell">
+                <div class="image">
+                <img src="/images/homepage/pizza-3.jpg" />
+                </div>
+                <div class="text">
+                  <p>AMAZING SERVICE</p>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                    enim ad minim veniam, quis nostrud exercitation ullamco
+                    laboris nisi ut aliquip ex ea commodo consequat.
+                  </p>
+                  <p>-Margaret Osbourne</p>
+                </div>
+              </div>
+           
 
-  <!-- Full-width images with number and caption text -->
-  <div class="mySlides fade">
-    <div class="carousel-mini">
-    <img src="/images/homepage/pizza-3.jpg">
-    <div class="text">
-      <p>AMAZING SERVICE</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <p>-Margaret Osbourne</p>
-    </div>
-    </div>
-  </div>
+            
+              <div class="carousel-cell">
+                <div class="image">
+                <img src="/images/homepage/pizza-4.jpg" />
+                </div>
+                <div class="text">
+                  <p>AMAZING SERVICE</p>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                    enim ad minim veniam, quis nostrud exercitation ullamco
+                    laboris nisi ut aliquip ex ea commodo consequat.
+                  </p>
+                  <p>-Margaret Osbourne</p>
+                </div>
+              </div>
+            
 
-  <div class="mySlides fade">
-   <div class="carousel-mini">
-    <img src="/images/homepage/pizza-4.jpg">
-    <div class="text">
-    <p>AMAZING SERVICE</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <p>-Margaret Osbourne</p>
-      </div>
-    
-    </div>
-  </div>
+            
+              <div class="carousel-cell">
+                <div class="image">
+                <img src="/images/homepage/pizza-5.jpg" />
+                </div>
+                <div class="text">
+                  <p>AMAZING SERVICE</p>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                    enim ad minim veniam, quis nostrud exercitation ullamco
+                    laboris nisi ut aliquip ex ea commodo consequat.
+                  </p>
+                  <p>-Margaret Osbourne</p>
+                </div>
+              </div>
+            
 
-  <div class="mySlides fade">
-    <div class="carousel-mini">
-    <img src="/images/homepage/pizza-5.jpg">
-    <div class="text">
-    <p>AMAZING SERVICE</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <p>-Margaret Osbourne</p>
-      </div>
-    
-    </div>
-  </div>
-
-  
-   <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1)">&#10095;</a>
-</div>
-<br>
-
-<!-- The dots/circles -->
-<div style="text-align:center">
-  <span class="dot" onclick="currentSlide(1)"></span>
-  <span class="dot" onclick="currentSlide(2)"></span>
-  <span class="dot" onclick="currentSlide(3)"></span>
-</div> 
-
-</div>
-
-
-
-
-
+        </div>
       </section>
 
       <section id="order">
@@ -425,6 +422,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="vendor/range-slider.min.js"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <script src="js/app.js" type="module"></script>
   </body>
 </html>

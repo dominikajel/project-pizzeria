@@ -1,32 +1,42 @@
 /* global Handlebars, dataSource */
 
-export const utils = {}; 
+export const utils = {};
 
-utils.createDOMFromHTML = function(htmlString) {
+utils.createDOMFromHTML = function (htmlString) {
   let div = document.createElement('div');
   div.innerHTML = htmlString.trim();
   return div.firstChild;
 };
 
-utils.createPropIfUndefined = function(obj, key, value = []){
-  if(!obj.hasOwnProperty(key)){
+utils.createPropIfUndefined = function (obj, key, value = []) {
+  if (!obj.hasOwnProperty(key)) {
     obj[key] = value;
   }
 };
 
-utils.serializeFormToObject = function(form){
+utils.serializeFormToObject = function (form) {
   let output = {};
   if (typeof form == 'object' && form.nodeName == 'FORM') {
     for (let field of form.elements) {
-      if (field.name && !field.disabled && field.type != 'file' && field.type != 'reset' && field.type != 'submit' && field.type != 'button') {
+      if (
+        field.name &&
+        !field.disabled &&
+        field.type != 'file' &&
+        field.type != 'reset' &&
+        field.type != 'submit' &&
+        field.type != 'button'
+      ) {
         if (field.type == 'select-multiple') {
           for (let option of field.options) {
-            if(option.selected) {
+            if (option.selected) {
               utils.createPropIfUndefined(output, field.name);
               output[field.name].push(option.value);
             }
           }
-        } else if ((field.type != 'checkbox' && field.type != 'radio') || field.checked) {
+        } else if (
+          (field.type != 'checkbox' && field.type != 'radio') ||
+          field.checked
+        ) {
           utils.createPropIfUndefined(output, field.name);
           output[field.name].push(field.value);
         }
@@ -42,13 +52,13 @@ utils.queryParams = function (params) {
     .join('&');
 };
 
-utils.convertDataSourceToDbJson = function(){
+utils.convertDataSourceToDbJson = function () {
   const productJson = [];
-  for(let key in dataSource.products){
-    productJson.push(Object.assign({id: key}, dataSource.products[key]));
+  for (let key in dataSource.products) {
+    productJson.push(Object.assign({ id: key }, dataSource.products[key]));
   }
 
-  console.log(JSON.stringify({product: productJson, order: []}, null, '  '));
+  console.log(JSON.stringify({ product: productJson, order: [] }, null, '  '));
 };
 
 utils.numberToHour = function (number) {
@@ -73,46 +83,12 @@ utils.addDays = function (dateStr, days) {
   return dateObj;
 };
 
-
-
-Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
-  return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+Handlebars.registerHelper('ifEquals', function (arg1, arg2, options) {
+  return arg1 == arg2 ? options.fn(this) : options.inverse(this);
 });
 
-Handlebars.registerHelper('joinValues', function(input, options) {
+Handlebars.registerHelper('joinValues', function (input, options) {
   return Object.values(input).join(options.fn(this));
 });
 
 
-var slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides((slideIndex += n));
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides((slideIndex = n));
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName('mySlides');
-  var dots = document.getElementsByClassName('dot');
-  if (n > slides.length) {
-    slideIndex = 1;
-  }
-  if (n < 1) {
-    slideIndex = slides.length;
-  }
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = 'none';
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(' active', '');
-  }
-  slides[slideIndex - 1].style.display = 'block';
-  dots[slideIndex - 1].className += ' active';
-} 
