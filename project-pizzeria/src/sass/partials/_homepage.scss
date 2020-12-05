@@ -1,5 +1,5 @@
 .home-wrapper {
-  background-color: $color-light;
+  margin-top: 112px;
 }
 
 .wrapper {
@@ -14,7 +14,7 @@
     p {
       transition: 0.5s ease-in-out;
       margin: 0;
-    padding: 0;
+      padding: 0;
     }
 
     p:nth-child(2) {
@@ -61,7 +61,7 @@
     color: $color-light;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
   }
 
   img {
@@ -76,16 +76,16 @@
   background-color: $color-main;
   color: $color-light;
   position: relative;
-  margin-top: 5px;
+  margin-top: 7px;
 
   p:nth-child(1) {
     position: absolute;
-    top: 10px;
+    top: 15px;
   }
 
   p:nth-child(2) {
     position: absolute;
-    top: 57px;
+    top: 60px;
 
     font-family: $font-text;
     font-weight: $font-light;
@@ -94,9 +94,79 @@
 }
 
 .button-small {
-  max-width: 320px;
+  max-width: 326px;
+  background: transparent;
 
-  &:nth-child(1) {
-    margin-left: 3px;
+  // &:nth-child(1) {
+  //   margin-left: 3px;
+  // }
+}
+
+
+/*Carousel*/
+
+
+.carousel {
+  margin-top: 100px;
+}
+
+.carousel-mini {
+  display: flex;
+  width: 100%;
+
+  img {
+    width: 190px;
+    height: 190px;
+    border-radius: 4px;
+  }
+
+
+  .text {
+
+    padding: 20px 15px 30px 36px;
+
+
+  p:nth-child(1) {
+    
+    font-weight: $font-bold;
+  }
+
+  p:nth-child(3) {
+    font-style: italic;
+    font-weight: $font-bold;
   }
 }
+
+ 
+}
+
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: red;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+
+
