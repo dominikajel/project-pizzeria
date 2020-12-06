@@ -111,11 +111,14 @@
 .carousel-cell {
   display: flex;
   width: 100%;
+   padding-left: 25px;
 
   .image {
-    
-    min-width: 193px;
-    min-height: 193px;
+    // min-width: 193px;
+    // min-height: 193px;
+    height: 193px;
+    flex: 1 0 193px;
+   
 
     img {
       object-fit: cover;
@@ -149,15 +152,19 @@
   width: 100%;
   // height: 193px;
   flex-wrap: wrap;
+  padding: 0;
+  width: 610px;
 
-  
+  .pic-wrapper {
+    
 
   .picture {
     width: 193px;
     height: 193px;
     position: relative;
     
-    margin: 0;
+
+    margin-bottom: 10px;
     padding: 0;
 
     img {
@@ -165,24 +172,43 @@
       width: 100%;
       height: 100%;
       border-radius: 4px;
-      
     }
 
-    p {
-      display: block;
+    // p {
+    //   display: block;
+    //   position: absolute;
+    //   top: 50%;
+    //   left: 50%;
+    //   transform: translate (-50%, -50%);
+    //   margin: 0;
+    //   padding: 0;
+    //   z-index: 100;
+    //   text-align: center;
+    //   border: 2px solid red;
+    //   margin: 0 auto;
+    .icon-wrapper {
+      width: 40px;
       position: absolute;
+      border: 2px solid red;
       top: 50%;
       left: 50%;
       transform: translate (-50%, -50%);
-      margin: 0;
-      padding: 0;
+      display: flex;
+      justify-content: space-between;
+      z-index: 100;
+    
+
+
 
       i {
-        display: inline-block;
+        // display: inline-block;
         color: white;
         margin: 0;
         padding: 0;
         opacity: 0;
+
+       
+
         &:hover {
           color: $color-main;
         }
@@ -194,21 +220,20 @@
     }
 
     &:hover .overlay {
-      opacity: 1;
+      opacity: 0.5;
     }
 
-
-    .overlay { 
-            position: absolute; 
-            transition: all 0.3s ease; 
-            opacity: 0; 
-            background-color: black; 
-        } 
-
-    
-          
+    .overlay {
+      position: absolute;
+      transition: all 0.3s ease;
+      
+      background-color: black;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+    }
   }
-
-  
-
+}
 }
