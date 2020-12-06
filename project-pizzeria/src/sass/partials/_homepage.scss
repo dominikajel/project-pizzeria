@@ -6,6 +6,9 @@
   display: flex;
   justify-content: space-between;
   position: static;
+  width: 605px;
+  margin: 0 auto;
+  
 
   a {
     margin: 0;
@@ -43,9 +46,9 @@
 
 .homepage-button {
   position: relative;
-  height: ($base-size * 10);
+  height: 116px;
   border-radius: 4px;
-  width: 100%;
+  // width: 100%;
   // border: 2px solid red;
   align-items: center;
   // margin: 5px 5px 5px 5px;
@@ -77,6 +80,8 @@
   color: $color-light;
   position: relative;
   margin-top: 7px;
+  width: 605px;
+  margin: 7px auto;
 
   p:nth-child(1) {
     position: absolute;
@@ -94,8 +99,10 @@
 }
 
 .button-small {
-  max-width: 326px;
+  // max-width: 326px;
   background: transparent;
+  height: 116px;
+  width: 298px;
 
   // &:nth-child(1) {
   //   margin-left: 3px;
@@ -111,14 +118,13 @@
 .carousel-cell {
   display: flex;
   width: 100%;
-   padding-left: 25px;
+  padding-left: 25px;
 
   .image {
     // min-width: 193px;
     // min-height: 193px;
     height: 193px;
     flex: 1 0 193px;
-   
 
     img {
       object-fit: cover;
@@ -147,7 +153,8 @@
 .gallery-wrapper {
   display: flex;
   justify-content: space-between;
-  border: 2px solid red;
+  margin-top: 100px;
+
   flex-direction: row;
   width: 100%;
   // height: 193px;
@@ -156,84 +163,81 @@
   width: 610px;
 
   .pic-wrapper {
-    
+    .picture {
+      width: 193px;
+      height: 193px;
+      position: relative;
 
-  .picture {
-    width: 193px;
-    height: 193px;
-    position: relative;
-    
+      margin-bottom: 10px;
+      padding: 0;
 
-    margin-bottom: 10px;
-    padding: 0;
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4px;
+      }
 
-    img {
-      object-fit: cover;
-      width: 100%;
-      height: 100%;
-      border-radius: 4px;
-    }
+      .icon-wrapper {
+        width: 50px;
+        position: absolute;
 
-    // p {
-    //   display: block;
-    //   position: absolute;
-    //   top: 50%;
-    //   left: 50%;
-    //   transform: translate (-50%, -50%);
-    //   margin: 0;
-    //   padding: 0;
-    //   z-index: 100;
-    //   text-align: center;
-    //   border: 2px solid red;
-    //   margin: 0 auto;
-    .icon-wrapper {
-      width: 40px;
-      position: absolute;
-      border: 2px solid red;
-      top: 50%;
-      left: 50%;
-      transform: translate (-50%, -50%);
-      display: flex;
-      justify-content: space-between;
-      z-index: 100;
-    
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: space-between;
+        z-index: 100;
 
+        i {
+          display: inline-block;
+          color: white;
+          margin: 0;
+          padding: 0;
+          opacity: 0;
+          font-size: $base-size + 5px;
 
-
-      i {
-        // display: inline-block;
-        color: white;
-        margin: 0;
-        padding: 0;
-        opacity: 0;
-
-       
-
-        &:hover {
-          color: $color-main;
+          &:hover {
+            color: $color-main;
+          }
         }
       }
-    }
 
-    &:hover i {
-      opacity: 1;
-    }
+      &:hover i {
+        opacity: 1;
+      }
 
-    &:hover .overlay {
-      opacity: 0.5;
-    }
+      &:hover .overlay {
+        opacity: 0.5;
+      }
 
-    .overlay {
-      position: absolute;
-      transition: all 0.3s ease;
-      
-      background-color: black;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      opacity: 0;
+      .overlay {
+        position: absolute;
+        transition: all 0.3s ease;
+
+        background-color: black;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+      }
     }
   }
 }
+
+/*Footer*/
+
+.footer {
+
+  
+   margin-top: 20px;
+    margin-bottom: 60px;
+
+
+  a {
+    color: $color-main;
+    padding-left: 25px;
+    
+  }
 }
