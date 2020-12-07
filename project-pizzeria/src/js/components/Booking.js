@@ -48,7 +48,9 @@ export class Booking {
   initWidgets() {
     const thisBooking = this;
     thisBooking.peopleAmount = new AmountWidget(thisBooking.dom.peopleAmount);
-    thisBooking.hoursAmount = new AmountWidget(thisBooking.dom.hoursAmount);
+    thisBooking.hoursAmount = new AmountWidget(
+      thisBooking.dom.hoursAmount
+    );
     thisBooking.datePicker = new DatePicker(thisBooking.dom.datePicker);
     thisBooking.hourPicker = new HourPicker(thisBooking.dom.hourPicker);
     thisBooking.dom.wrapper.addEventListener('updated', function () {
@@ -57,7 +59,20 @@ export class Booking {
         event.preventDefault();
         thisBooking.sendBooking();
       });
+
+
     });
+
+    thisBooking.date.addEventListener('change', function () {
+      thisBooking.changeDateorHour();
+    });
+
+
+    thisBooking.hour.addEventListener('change', function () {
+      thisBooking.changeDateorHour();
+    });
+
+
   }
 
   getData() {
@@ -188,7 +203,7 @@ export class Booking {
       if (
         typeof thisBooking.booked[thisBooking.date] != 'undefined' &&
         typeof thisBooking.booked[thisBooking.date][thisBooking.hour] !=
-          'undefined' &&
+        'undefined' &&
         thisBooking.booked[thisBooking.date][thisBooking.hour].indexOf(tableId)
       ) {
         table.classList.add(classNames.booking.tableBooked);
@@ -269,5 +284,46 @@ export class Booking {
       .then(function (parsedResponse) {
         console.log('parsedResponse', parsedResponse);
       });
+
+
+    
+  }
+
+
+  //CODE ADDED//
+
+  changeDateorHour() {
+    const thisBooking = this;
+    console.log('changeDateorHour');
+
+    const hours = [];
+
+    const startHour = settings.hours.open;
+
+    for (
+      let hour = startHour;
+      hour < settings.hours.close;
+      hour += 0.5
+    ) {
+      if (typeof thisBooking.booked[date][hour].indexOf(table)) {
+
+        if (table.length == 1) {
+          thisBooking[hours].push(yellow);
+        } else if (table.length == 2) {
+          thisBooking[hours].push(orange);
+        } else if (table.length == 3) {
+          thisBooking[hours].push(red);
+        }
+
+        
+      } else {
+
+        thisBooking[hours].push(green);
+
+      }
+        
+    }
+
+    
   }
 }

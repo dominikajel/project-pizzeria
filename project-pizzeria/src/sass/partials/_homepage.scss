@@ -8,7 +8,6 @@
   position: static;
   width: 605px;
   margin: 0 auto;
-  
 
   a {
     margin: 0;
@@ -188,19 +187,6 @@
         display: flex;
         justify-content: space-between;
         z-index: 100;
-
-        i {
-          display: inline-block;
-          color: white;
-          margin: 0;
-          padding: 0;
-          opacity: 0;
-          font-size: $base-size + 5px;
-
-          &:hover {
-            color: $color-main;
-          }
-        }
       }
 
       &:hover i {
@@ -229,15 +215,24 @@
 /*Footer*/
 
 .footer {
-
-  
-   margin-top: 20px;
-    margin-bottom: 60px;
-
+  margin-top: 20px;
+  margin-bottom: 60px;
 
   a {
     color: $color-main;
     padding-left: 25px;
-    
+  }
+}
+
+i {
+  display: inline-block;
+  color: white;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  font-size: $base-size + 5px;
+
+  &:hover {
+    color: $color-main;
   }
 }

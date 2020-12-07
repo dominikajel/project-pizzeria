@@ -6,8 +6,11 @@ export class AmountWidget extends BaseWidget {
     super(wrapper, settings.amountWidget.defaultValue);
 
     const thisWidget = this;
+
+    
     thisWidget.getElements();
     thisWidget.initActions();
+
     ////console.log('AmountWidget:', thisWidget);
     ////console.log('constructor arguments:', element);
   }
@@ -27,14 +30,19 @@ export class AmountWidget extends BaseWidget {
   }
 
   isValid(newValue) {
-    return !isNaN(newValue) && newValue >= settings.amountWidget.defaultMin && newValue <= settings.amountWidget.defaultMax; 
-
+    return (
+      !isNaN(newValue) &&
+      newValue >= settings.amountWidget.defaultMin &&
+      newValue <= settings.amountWidget.defaultMax
+    );
   }
 
   renderValue() {
     const thisWidget = this;
     thisWidget.dom.input.value = thisWidget.value;
   }
+
+ 
 
   initActions() {
     const thisWidget = this;
@@ -45,11 +53,12 @@ export class AmountWidget extends BaseWidget {
     thisWidget.dom.linkDecrease.addEventListener('click', function (event) {
       event.preventDefault;
       --thisWidget.value;
+     
     });
     thisWidget.dom.linkIncrease.addEventListener('click', function (event) {
       event.preventDefault;
       ++thisWidget.value;
+     
     });
   }
-
 }
