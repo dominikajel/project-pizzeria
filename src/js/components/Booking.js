@@ -63,14 +63,14 @@ export class Booking {
 
     });
 
-    thisBooking.date.addEventListener('change', function () {
-      thisBooking.changeDateorHour();
-    });
+    // thisBooking.date.addEventListener('change', function () {
+    //   thisBooking.changeDateorHour();
+    // });
 
 
-    thisBooking.hour.addEventListener('change', function () {
-      thisBooking.changeDateorHour();
-    });
+    // thisBooking.hour.addEventListener('change', function () {
+    //   thisBooking.changeDateorHour();
+    // });
 
 
   }
@@ -292,38 +292,38 @@ export class Booking {
 
   //CODE ADDED//
 
-  changeDateorHour() {
-    const thisBooking = this;
-    console.log('changeDateorHour');
+  // changeDateorHour() {
+  //   const thisBooking = this;
+  //   console.log('changeDateorHour');
 
-    const hours = [];
+  //   const hours = [];
 
-    const startHour = settings.hours.open;
+  //   const startHour = settings.hours.open;
 
-    for (
-      let hour = startHour;
-      hour < settings.hours.close;
-      hour += 0.5
-    ) {
-      if (typeof thisBooking.booked[date][hour].indexOf(table)) {
+  //   for (
+  //     let hour = startHour;
+  //     hour < settings.hours.close;
+  //     hour += 0.5
+  //   ) {
+  //     if (typeof thisBooking.booked[date][hour].indexOf(table)) {
 
-        if (table.length == 1) {
-          thisBooking[hours].push(yellow);
-        } else if (table.length == 2) {
-          thisBooking[hours].push(orange);
-        } else if (table.length == 3) {
-          thisBooking[hours].push(red);
-        }
+  //       if (table.length == 1) {
+  //         thisBooking[hours].push(yellow);
+  //       } else if (table.length == 2) {
+  //         thisBooking[hours].push(orange);
+  //       } else if (table.length == 3) {
+  //         thisBooking[hours].push(red);
+  //       }
 
         
-      } else {
+  //     } else {
 
-        thisBooking[hours].push(green);
+  //       thisBooking[hours].push(green);
 
-      }
+  //     }
         
-    }
+  //   }
 
-    
-  }
+
+  
 }
