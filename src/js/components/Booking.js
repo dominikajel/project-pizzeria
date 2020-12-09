@@ -292,37 +292,39 @@ export class Booking {
 
   //CODE ADDED//
 
-  // changeDateorHour() {
-  //   const thisBooking = this;
-  //   console.log('changeDateorHour');
+  changeDateorHour() {
+    const thisBooking = this;
+    console.log('changeDateorHour');
 
-  //   const hours = [];
+    thisBooking.date = thisBooking.datePicker.value;
+    thisBooking.hour = utils.hourToNumber(thisBooking.hourPicker.value);
 
-  //   const startHour = settings.hours.open;
+    const hours = [];
 
-  //   for (
-  //     let hour = startHour;
-  //     hour < settings.hours.close;
-  //     hour += 0.5
-  //   ) {
-  //     if (typeof thisBooking.booked[date][hour].indexOf(table)) {
+    const startHour = settings.hours.open;
 
-  //       if (table.length == 1) {
-  //         thisBooking[hours].push(yellow);
-  //       } else if (table.length == 2) {
-  //         thisBooking[hours].push(orange);
-  //       } else if (table.length == 3) {
-  //         thisBooking[hours].push(red);
-  //       }
-
+    for (
+      let hour = startHour;
+      hour < settings.hours.close;
+      hour += 0.5
+    ) {
+      if (
+        thisBooking.booked[date] &&
+        thisBooking.booked[date][hour]
+      ) {
+        if (thisBooking.booked[date][hour].length == 1) {
+          thisBooking[hours].push('yellow');
+        } else if (thisBooking.booked[date][hour].length == 2) {
+          thisBooking[hours].push('orange');
+        } else if (thisBooking.booked[date][hour].length == 3) {
+          thisBooking[hours].push('red');
+        }
+      } else {
+        thisBooking[hours].push('green');
+      }
         
-  //     } else {
-
-  //       thisBooking[hours].push(green);
-
-  //     }
-        
-  //   }
+    }
+  }
 
 
   
